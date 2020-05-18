@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AlmacenActivity">
+
+
+
+    <TextView
+        android:id="@+id/tvAlmacen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tv_almacen"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:padding="@dimen/padding"/>
+    <LinearLayout
+        android:id="@+id/llFiltroM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/tvAlmacen">
+
+        <EditText
+            android:id="@+id/etProductosV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/hint_et_proveedor"/>
+        <Button
+            android:id="@+id/btnBuscarV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_buscar"
+            android:layout_weight="2"
+            android:onClick="consultar"/>
+
+    </LinearLayout>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProductos"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/llFiltroM"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical" />
+
+</RelativeLayout>

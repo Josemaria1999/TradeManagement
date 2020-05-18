@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnCompra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:onClick="comprarAProveedores"
+        android:text="@string/btnCompra" />
+
+    <Button
+        android:id="@+id/btnVenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnCompra"
+        android:layout_marginTop="25dp"
+        android:text="@string/btn_venta"
+        android:onClick="venderAClientes"/>
+
+    <Button
+        android:id="@+id/btnAlmacen"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnVenta"
+        android:layout_marginTop="25dp"
+        android:text="@string/btn_almacen"
+        android:onClick="almacen"/>
+    <Button
+        android:id="@+id/btnCuentaResultados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnAlmacen"
+        android:layout_marginTop="25dp"
+        android:text="@string/btn_cuentaRes"
+        android:onClick="cuentaResultados"/>
+    <Button
+        android:id="@+id/btnIntroYaExistentes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnCuentaResultados"
+        android:layout_marginTop="25dp"
+        android:onClick="comprarAProveedoores"
+        android:text="@string/btnEntradaStockExistente" />
+    <Button
+        android:id="@+id/btnRegistroVenta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnIntroYaExistentes"
+        android:layout_marginTop="25dp"
+        android:text="@string/btn_registroV"
+        android:onClick="registroVentas"/>
+
+</RelativeLayout>

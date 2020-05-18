@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">TradeManagement</string>
+    <string name="btnCompra">REGISTRAR PRODUCTO NUEVO</string>
+    <string name="btn_venta">Vender</string>
+    <string name="btn_almacen">Almacen</string>
+    <string name="btn_cuentaRes">Cuenta de resultados</string>
+    <string name="hint_et_codigo">código</string>
+    <string name="hint_et_nombre_producto">Nombre del producto</string>
+    <string name="hint_et_proveedor">Proveedor</string>
+    <string name="hint_et_cantidad">Cantidad</string>
+    <string name="hint_et_precio_compra">Precio de compra</string>
+    <string name="hint_et_total">Para el total, pulsar aquí</string>
+    <string name="btn_guardar">GUARDAR</string>
+    <string name="btn_Reiniciar">REINICIAR</string>
+    <string name="no_datos">DEBES INTRODUCIR TODOS LOS DATOS</string>
+    <string name="insert_ok">Compra al proveedor registrada con exito</string>
+    <string name="insert_ko">YA EXISTE UN PRODUCTO CON ESE CÓDIGO</string>
+    <string name="btn_buscar">BUSCAR</string>
+    <string name="tv_almacen">ALMACEN</string>
+    <string name="no_codigo">DEBES INTRODUCIR EL CÓDIGO</string>
+    <string name="no_producto">NO EXISTE PRODUCTO CON ESE CÓDIGO</string>
+    <string name="btnEntradaStockExistente">EDITAR DATOS DE PRODUCTO</string>
+    <string name="update_ok">CAMBIO REALIZADO</string>
+    <string name="hint_et_precio_venta">Precio</string>
+    <string name="tv_registro_ventas">REGISTRO DE VENTAS</string>
+    <string name="btn_registroV">REGISTRO DE VENTAS</string>
+    <string name="hint_et_cliente">Nombre del cliente</string>
+    <string name="no_cliente">DEBES INTRODUCIR UN CLIENTE</string>
+    <string name="no_venta">NO EXISTE REGISTRO DE VENTA DE ESE PRODUCTO</string>
+</resources>
