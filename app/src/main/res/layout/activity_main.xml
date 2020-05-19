@@ -24,6 +24,16 @@
         android:onClick="venderAClientes"/>
 
     <Button
+        android:id="@+id/btnVenta2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnCompra"
+        android:layout_marginTop="382dp"
+        android:onClick="nuevaV"
+        android:text="Nventa"
+        />
+
+    <Button
         android:id="@+id/btnAlmacen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

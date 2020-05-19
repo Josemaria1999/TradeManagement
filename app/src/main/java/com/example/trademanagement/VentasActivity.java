@@ -9,8 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.trademanagement.db.CompraPersistencia;
+import com.example.trademanagement.db.ProductosPersistencia;
 import com.example.trademanagement.db.VentaPersistencia;
+import com.example.trademanagement.model.Producto;
 import com.example.trademanagement.model.Venta;
 
 public class VentasActivity extends AppCompatActivity {
@@ -21,14 +22,14 @@ public class VentasActivity extends AppCompatActivity {
     EditText etPrecioVenta;
     EditText etTotalV;
     VentaPersistencia vp;
-    CompraPersistencia cp;
+    ProductosPersistencia cp;
     Button btnBuscarV;
     Button btnGuardarV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ventas);
-        etCodigoV = findViewById(R.id.etCodigoM);
+        etCodigoV = findViewById(R.id.etCodigoV);
         etNombreV = findViewById(R.id.etNombreV);
         etProveedorV = findViewById(R.id.etProveedorV);
         etCantidadV = findViewById(R.id.etCantidadV);
@@ -38,7 +39,7 @@ public class VentasActivity extends AppCompatActivity {
         btnBuscarV = findViewById(R.id.btnBuscarV);
         btnGuardarV = findViewById(R.id.btnGuardarV);
         vp = new VentaPersistencia(this);
-        cp = new CompraPersistencia(this);
+        cp = new ProductosPersistencia(this);
     }
 
     public void buscarV(View view) {
@@ -72,7 +73,31 @@ public class VentasActivity extends AppCompatActivity {
         }
 
         public void guardarV (View view){
+            String codigo = etCodigoV.getText().toString().trim();
+            String nombre = etNombreV.getText().toString().trim();
+            String proveedor = etProveedorV.getText().toString().trim();
+            String cantidad = etCantidadV.getText().toString().trim();
+            String precioCompra = etPrecioVenta.getText().toString().trim();
+            String total = etTotalV.getText().toString().trim();
+
+            if(codigo.isEmpty() || nombre.isEmpty() || proveedor.isEmpty() || cantidad.isEmpty()|| precioCompra.isEmpty()|| total.isEmpty()){
+                Toast.makeText(this, getString(R.string.no_datos),
+                        Toast.LENGTH_LONG).show();
+            }else {
+
+                Producto compra = new Producto(codigo, nombre, proveedor, cantidad, precioCompra, total);
+                compra.setCodigo(codigo);
+                cp.actualizarAlmacen(compra);
+
+                Toast.makeText(this, getString(R.string.update_ok),
+                        Toast.LENGTH_LONG).show();
+
+            }
+
+
         }
+
+
         private void habilitar ( boolean b){
             etCodigoV.setEnabled(b);
 

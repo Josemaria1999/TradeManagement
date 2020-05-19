@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.trademanagement.model.Compra;
 import com.example.trademanagement.model.Venta;
 
 import java.util.ArrayList;

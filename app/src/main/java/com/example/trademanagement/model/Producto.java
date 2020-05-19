@@ -1,6 +1,6 @@
 package com.example.trademanagement.model;
 
-public class Compra {
+public class Producto {
     private String codigo;
     private String nombre;
     private String proveedor;
@@ -9,7 +9,7 @@ public class Compra {
     private String total;
 
 
-    public Compra(String codigo, String nombre, String proveedor, String cantidad, String precio, String total) {
+    public Producto(String codigo, String nombre, String proveedor, String cantidad, String precio, String total) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.proveedor = proveedor;

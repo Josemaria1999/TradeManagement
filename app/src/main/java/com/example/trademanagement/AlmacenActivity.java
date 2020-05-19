@@ -4,24 +4,23 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
-import com.example.trademanagement.db.CompraPersistencia;
-import com.example.trademanagement.model.Compra;
-import com.example.trademanagement.rvUtils.CompraAdapter;
+import com.example.trademanagement.db.ProductosPersistencia;
+import com.example.trademanagement.model.Producto;
+import com.example.trademanagement.rvUtils.ProductosAdapter;
 
 import java.util.ArrayList;
 
 public class AlmacenActivity extends AppCompatActivity {
 
     RecyclerView rv;
-    CompraAdapter ca;
+    ProductosAdapter ca;
     LinearLayoutManager llm;
-    CompraPersistencia cp;
-    ArrayList<Compra> listaCompra;
+    ProductosPersistencia cp;
+    ArrayList<Producto> listaCompra;
     EditText etProducto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class AlmacenActivity extends AppCompatActivity {
 
         etProducto = findViewById(R.id.etProductosV);
         rv = findViewById(R.id.rvProductos);
-        cp = new CompraPersistencia(this);
+        cp = new ProductosPersistencia(this);
         listaCompra = cp.leerCompra();
 
         configurarRV();
@@ -38,7 +37,7 @@ public class AlmacenActivity extends AppCompatActivity {
 
 
     private void configurarRV() {
-        ca = new CompraAdapter(listaCompra);
+        ca = new ProductosAdapter(listaCompra,AlmacenActivity.this);
         llm = new LinearLayoutManager(this);
 
         rv.setLayoutManager(llm);
@@ -56,7 +55,7 @@ public class AlmacenActivity extends AppCompatActivity {
             listaCompra = cp.leerCompra();
 
         }else {
-            listaCompra = cp.leerCompraPorProducto(producto);
+            listaCompra = cp.leerProductoPorCodigo(producto);
 
         }
         configurarRV();

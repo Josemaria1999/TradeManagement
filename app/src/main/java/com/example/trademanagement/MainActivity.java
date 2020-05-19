@@ -17,10 +17,7 @@ public class MainActivity extends AppCompatActivity {
     public void venderAClientes(View view) {
         Intent i = new Intent(this, VentasActivity.class);
         startActivity(i);    }
-   /* public void vender(View view) {
-        Intent i = new Intent(this, VentasActivity.class);
-        startActivity(i);    }
-*/
+
     public void comprarAProveedores(View view) {
         Intent i = new Intent(this, CompraActivity.class);
         startActivity(i);    }
@@ -42,4 +39,6 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, RegistroVentas.class);
         startActivity(i);
     }
+
+
 }

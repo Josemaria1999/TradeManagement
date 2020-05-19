@@ -2,7 +2,7 @@ package com.example.trademanagement.db;
 
 import android.provider.BaseColumns;
 
-public class CompraContract {
+public class ProductosContract {
     public static abstract class CompraEntry implements BaseColumns{
         public static final String COLUMN_CODIGO = BaseColumns._ID;
         public static final String COLUMN_NOMBRE = "NOMBRE";

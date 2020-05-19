@@ -32,7 +32,7 @@
         android:layout_below="@id/tvVentas">
 
         <EditText
-            android:id="@+id/etCodigoM"
+            android:id="@+id/etCodigoV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

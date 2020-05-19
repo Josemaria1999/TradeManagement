@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.trademanagement.R;
-import com.example.trademanagement.model.Compra;
+import com.example.trademanagement.model.Producto;
 import com.example.trademanagement.model.Venta;
 
 import java.util.ArrayList;
@@ -56,7 +56,7 @@ public class VentaAdapter extends RecyclerView.Adapter {
             tvTotalV = v.findViewById(R.id.tvTotalI);
         }
 
-        public void bindCompra(Compra c){
+        public void bindCompra(Producto c){
             tvCodigoV.setText("Código: " + c.getCodigo() );
             tvNombreV.setText("Nombre: " + c.getNombre());
             tvProveedorV.setText("Proveedor: " + c.getProveedor());

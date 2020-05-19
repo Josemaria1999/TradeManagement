@@ -27,7 +27,7 @@ public class RegistroVentas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro_ventas);
         etProductoV = findViewById(R.id.etProductosV);
-        etCodigo = (EditText) findViewById(R.id.etCodigoM);
+        etCodigo = (EditText) findViewById(R.id.etCodigoV);
         rvV = (RecyclerView) findViewById(R.id.rvProductos);
         vP = new VentaPersistencia(this);
         //listaVenta = vP.leerVenta();

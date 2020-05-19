@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.trademanagement.db.CompraPersistencia;
-import com.example.trademanagement.model.Compra;
+import com.example.trademanagement.db.ProductosPersistencia;
+import com.example.trademanagement.model.Producto;
 
 public class ModificarProductosAlmacen extends AppCompatActivity {
     EditText etCodigo;
@@ -19,7 +19,7 @@ public class ModificarProductosAlmacen extends AppCompatActivity {
     EditText etCantidad;
     EditText etPrecioCompra;
     EditText etTotal;
-    CompraPersistencia productosP;
+    ProductosPersistencia productosP;
 
     Button btnBuscar;
     Button btnGuardar;
@@ -27,7 +27,7 @@ public class ModificarProductosAlmacen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modificar_productos_almacen);
-        etCodigo = findViewById(R.id.etCodigoM);
+        etCodigo = findViewById(R.id.etCodigoV);
         etNombre = findViewById(R.id.etNombreM);
         etProveedor = findViewById(R.id.etProveedorM);
         etCantidad = findViewById(R.id.etCantidadM);
@@ -36,7 +36,7 @@ public class ModificarProductosAlmacen extends AppCompatActivity {
 
         btnBuscar = findViewById(R.id.btnBuscarV);
         btnGuardar = findViewById(R.id.btnGuardarM);
-        productosP = new CompraPersistencia(this);
+        productosP = new ProductosPersistencia(this);
 
         etTotal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,14 +67,14 @@ public class ModificarProductosAlmacen extends AppCompatActivity {
 
         }else {
             int codigo = Integer.parseInt(sCodigo);
-            Compra compra = productosP.leerCompraa(codigo);
+            Producto producto = productosP.leerCompraa(codigo);
 
-            if(compra != null){
-                etNombre.setText(compra.getNombre());
-                etProveedor.setText(compra.getProveedor());
-                etCantidad.setText(compra.getCantidad());
-                etPrecioCompra.setText(compra.getPrecio());
-                etTotal.setText(compra.getTotal());
+            if(producto != null){
+                etNombre.setText(producto.getNombre());
+                etProveedor.setText(producto.getProveedor());
+                etCantidad.setText(producto.getCantidad());
+                etPrecioCompra.setText(producto.getPrecio());
+                etTotal.setText(producto.getTotal());
 
                 habilitar(true);
             }else {
@@ -110,7 +110,7 @@ public class ModificarProductosAlmacen extends AppCompatActivity {
                     Toast.LENGTH_LONG).show();
         }else {
 
-            Compra compra = new Compra(codigo, nombre, proveedor, cantidad, precioCompra, total);
+            Producto compra = new Producto(codigo, nombre, proveedor, cantidad, precioCompra, total);
             compra.setCodigo(codigo);
            productosP.actualizarAlmacen(compra);
 

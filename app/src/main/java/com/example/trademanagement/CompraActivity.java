@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.trademanagement.db.CompraPersistencia;
-import com.example.trademanagement.model.Compra;
+import com.example.trademanagement.db.ProductosPersistencia;
+import com.example.trademanagement.model.Producto;
 
 public class CompraActivity extends AppCompatActivity {
     EditText etCodigo;
@@ -17,20 +17,20 @@ public class CompraActivity extends AppCompatActivity {
     EditText etCantidad;
     EditText etPrecioCompra;
     EditText etTotal;
-    CompraPersistencia productosP;
+    ProductosPersistencia productosP;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compra);
 
-        etCodigo = findViewById(R.id.etCodigoM);
+        etCodigo = findViewById(R.id.etCodigoV);
         etNombre = findViewById(R.id.etNombreM);
         etProveedor = findViewById(R.id.etProveedorM);
         etCantidad = findViewById(R.id.etCantidadM);
         etPrecioCompra = findViewById(R.id.etPrecioCompraM);
         etTotal = findViewById(R.id.etTotalM);
 
-        productosP = new CompraPersistencia(this);
+        productosP = new ProductosPersistencia(this);
 
         etTotal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,13 +66,13 @@ public class CompraActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.no_datos),
                     Toast.LENGTH_LONG).show();
         }else{
-            Compra compra = new Compra(codigo, nombre, proveedor, cantidad, precioCompra, total);
-            long id = productosP.insertarCompra(compra);
+            Producto producto = new Producto(codigo, nombre, proveedor, cantidad, precioCompra, total);
+            long id = productosP.insertarCompra(producto);
 
             if (id != -1) {
                 Toast.makeText(this, getString(R.string.insert_ok),
                         Toast.LENGTH_LONG).show();
-                compra.setCodigo(codigo);
+                producto.setCodigo(codigo);
             } else {
                 Toast.makeText(this, getString(R.string.insert_ko),
                         Toast.LENGTH_LONG).show();
