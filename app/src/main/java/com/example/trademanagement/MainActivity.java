@@ -30,10 +30,7 @@ public class MainActivity extends AppCompatActivity {
         Intent i = new Intent(this, CuentaResultadosActivity.class);
         startActivity(i);    }
 
-    public void comprarAProveedoores(View view) {
-        Intent i = new Intent(this, ModificarProductosAlmacen.class);
-        startActivity(i);
-    }
+
 
     public void registroVentas(View view) {
         Intent i = new Intent(this, RegistroVentas.class);

@@ -4,12 +4,11 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:layout_width="206dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="4dp"
         android:onClick="vender"
-        >
+        android:orientation="horizontal"
+        android:padding="4dp">
         <!--android:onClick="vender"-->
 
         <TextView
@@ -33,17 +32,18 @@
         android:padding="4dp">
 
         <TextView
-            android:id="@+id/tvCantidadI"
-            android:layout_width="204dp"
-            android:layout_height="wrap_content"
-            android:textSize="16sp" />
-
-        <TextView
             android:id="@+id/tvProveedorI"
             android:layout_width="208dp"
             android:layout_height="wrap_content"
 
             android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvCantidadI"
+            android:layout_width="204dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -53,13 +53,13 @@
         android:padding="4dp">
 
         <TextView
-            android:id="@+id/tvPrecioI"
+            android:id="@+id/tvPrecioCompra"
             android:layout_width="218dp"
             android:layout_height="wrap_content"
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tvTotalI"
+            android:id="@+id/tvTotalCompra"
             android:layout_width="196dp"
             android:layout_height="wrap_content"
             android:textSize="16sp" />
@@ -70,20 +70,44 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/llCantidad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/tvCantidadVenta"
+            android:layout_width="218dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvPrecioVenta"
+            android:layout_width="218dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/etCodigo"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tvTotalVenta"
+            android:layout_width="196dp"
+            android:layout_height="wrap_content"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvDiferencia"
+            android:layout_width="196dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/hint_et_codigo"
-            android:textColorHint="@color/naranja"
-
-            />
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout

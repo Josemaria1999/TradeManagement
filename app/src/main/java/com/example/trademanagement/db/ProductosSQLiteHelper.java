@@ -11,19 +11,27 @@ public class ProductosSQLiteHelper extends SQLiteOpenHelper {
 
     static final String CREATE_TABLE_COMPRAS =
             "CREATE TABLE "
-                    + ProductosContract.CompraEntry.TABLE_NAME +
+                    + ProductosContract.ProductoEntry.TABLE_NAME +
                     "( " +
-                    ProductosContract.CompraEntry.COLUMN_CODIGO
+                    ProductosContract.ProductoEntry.COLUMN_CODIGO
                     + " INTEGER PRIMARY KEY ," +
-                    ProductosContract.CompraEntry.COLUMN_NOMBRE +
+                    ProductosContract.ProductoEntry.COLUMN_NOMBRE +
                     " TEXT NOT NULL," +
-                    ProductosContract.CompraEntry.COLUMN_PROVEEDOR +
+                    ProductosContract.ProductoEntry.COLUMN_PROVEEDOR +
                     " TEXT NOT NULL," +
-                    ProductosContract.CompraEntry.COLUMN_CANTIDAD +
+                    ProductosContract.ProductoEntry.COLUMN_CANTIDAD +
                     " NUMBER NOT NULL," +
-                    ProductosContract.CompraEntry.COLUMN_PRECIO+
+                    ProductosContract.ProductoEntry.COLUMN_PRECIO+
                     " NUMBER NOT NULL," +
-                    ProductosContract.CompraEntry.COLUMN_TOTAL+
+                    ProductosContract.ProductoEntry.COLUMN_TOTAL+
+                    " TEXT NOT NULL,"+
+                   ProductosContract.ProductoEntry.COLUMN_CANTIDAD_VENDIDA+
+                    " TEXT NOT NULL,"+
+                    ProductosContract.ProductoEntry.COLUMN_PRECIO_VENTA+
+                    " NUMBER NOT NULL," +
+                    ProductosContract.ProductoEntry.COLUMN_DIFERENCIA +
+                    " NUMBER NOT NULL,"+
+                    ProductosContract.ProductoEntry.COLUMN_TOTAL_GANANCIAS+
                     " TEXT NOT NULL);";
 
 
@@ -41,7 +49,7 @@ public class ProductosSQLiteHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " +
-                ProductosContract.CompraEntry.TABLE_NAME);
+                ProductosContract.ProductoEntry.TABLE_NAME);
         onCreate(db);
     }
 }

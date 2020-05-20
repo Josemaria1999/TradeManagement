@@ -14,7 +14,6 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="8dp"
         android:text="VENTAS"
-        android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -123,21 +122,79 @@
 
 
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llNumerosVent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/llNumerosV">
+
+        <EditText
+            android:id="@+id/etCantidadVendida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:hint="@string/hint_et_cantidad_vendida"
+            android:inputType="number"
+            android:textColorHint="@color/naranja" />
+
+        <EditText
+            android:id="@+id/etPrecioVenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:hint="@string/hint_et_precio_venta"
+            android:inputType="number"
+            android:textColorHint="@color/naranja" />
+
+        <EditText
+            android:id="@+id/etTotalVendido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:hint="@string/hint_et_total_vendido"
+            android:inputType="number"
+            android:textColorHint="@color/naranja" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llDiferencia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/llNumerosVent">
+
+        <EditText
+            android:id="@+id/etDiferencia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:enabled="false"
+            android:hint="DIFERENCIA"
+            android:inputType="number"
+            android:textColorHint="@color/naranja" />
+    </LinearLayout>
+
     <LinearLayout
         android:id="@+id/llBotones"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/llNumerosV">
+        android:layout_below="@id/llDiferencia">
         <Button
-            android:id="@+id/btnGuardarV"
+            android:id="@+id/btnVender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/naranja"
             android:enabled="false"
-            android:onClick="guardarV"
-            android:text="@string/btn_guardar"
+            android:onClick="venderACliente"
+            android:text="@string/btn_vender"
             android:textColorHint="@color/naranja" />
 
         <Button
@@ -150,6 +207,8 @@
             android:onClick="reiniciarV"
             android:text="@string/btn_Reiniciar"
             android:textColorHint="@color/naranja" />
+
+
 
     </LinearLayout>
 

@@ -43,20 +43,29 @@ public class ProductosPersistencia {
         database.beginTransaction();
 
         ContentValues compraValues = new ContentValues();
-        compraValues.put(ProductosContract.CompraEntry.COLUMN_CODIGO,
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_CODIGO,
                 compra.getCodigo());
-        compraValues.put(ProductosContract.CompraEntry.COLUMN_NOMBRE,
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_NOMBRE,
                 compra.getNombre());
-        compraValues.put(ProductosContract.CompraEntry.COLUMN_PROVEEDOR,
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_PROVEEDOR,
                 compra.getProveedor());
-        compraValues.put(ProductosContract.CompraEntry.COLUMN_CANTIDAD,
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_CANTIDAD,
                 compra.getCantidad());
-        compraValues.put(ProductosContract.CompraEntry.COLUMN_PRECIO,
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_PRECIO,
                 compra.getPrecio());
-        compraValues.put(ProductosContract.CompraEntry.COLUMN_TOTAL,
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_TOTAL,
                 compra.getTotal());
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_CANTIDAD_VENDIDA,
+                compra.getCantidadVendida());
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_PRECIO_VENTA,
+                compra.getPrecioVenta());
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_TOTAL_GANANCIAS,
+                compra.getTotalVenta());
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_DIFERENCIA,
+                compra.getDiferencia());
 
-        long codigo = database.insert(ProductosContract.CompraEntry.TABLE_NAME,
+
+        long codigo = database.insert(ProductosContract.ProductoEntry.TABLE_NAME,
                 null, compraValues);
 
         if (codigo != -1) {
@@ -75,13 +84,17 @@ public class ProductosPersistencia {
         SQLiteDatabase database = openReadable();
 
         String query = "SELECT "
-                + ProductosContract.CompraEntry.COLUMN_CODIGO
-                + ", " + ProductosContract.CompraEntry.COLUMN_NOMBRE
-                + ", " + ProductosContract.CompraEntry.COLUMN_PROVEEDOR
-                + ", " + ProductosContract.CompraEntry.COLUMN_CANTIDAD
-                + ", " + ProductosContract.CompraEntry.COLUMN_PRECIO
-                + ", " + ProductosContract.CompraEntry.COLUMN_TOTAL
-                + " FROM " + ProductosContract.CompraEntry.TABLE_NAME;
+                + ProductosContract.ProductoEntry.COLUMN_CODIGO
+                + ", " + ProductosContract.ProductoEntry.COLUMN_NOMBRE
+                + ", " + ProductosContract.ProductoEntry.COLUMN_PROVEEDOR
+                + ", " + ProductosContract.ProductoEntry.COLUMN_CANTIDAD
+                + ", " + ProductosContract.ProductoEntry.COLUMN_PRECIO
+                + ", " + ProductosContract.ProductoEntry.COLUMN_TOTAL
+                + ", " + ProductosContract.ProductoEntry.COLUMN_CANTIDAD_VENDIDA
+                + ", " + ProductosContract.ProductoEntry.COLUMN_PRECIO_VENTA
+                + ", " + ProductosContract.ProductoEntry.COLUMN_TOTAL_GANANCIAS
+                + ", " + ProductosContract.ProductoEntry.COLUMN_DIFERENCIA
+                + " FROM " + ProductosContract.ProductoEntry.TABLE_NAME;
 
         Cursor cursor = database.rawQuery(query, null);
 
@@ -93,23 +106,35 @@ public class ProductosPersistencia {
         String cantidad;
         String precio;
         String total;
+        String cantidadVendida;
+        String precioVenta;
+        String totalVentas;
+        String diferncia;
 
         if (cursor.moveToFirst()) {
             do {
                 codigo = cursor.getString(cursor.getColumnIndex(
-                        ProductosContract.CompraEntry.COLUMN_CODIGO));
+                        ProductosContract.ProductoEntry.COLUMN_CODIGO));
                 nombre = cursor.getString(cursor.getColumnIndex(
-                        ProductosContract.CompraEntry.COLUMN_NOMBRE));
+                        ProductosContract.ProductoEntry.COLUMN_NOMBRE));
                 proveedor = cursor.getString(cursor.getColumnIndex(
-                        ProductosContract.CompraEntry.COLUMN_PROVEEDOR));
+                        ProductosContract.ProductoEntry.COLUMN_PROVEEDOR));
                 cantidad = cursor.getString(cursor.getColumnIndex(
-                        ProductosContract.CompraEntry.COLUMN_CANTIDAD));
+                        ProductosContract.ProductoEntry.COLUMN_CANTIDAD));
                 precio = cursor.getString(cursor.getColumnIndex(
-                        ProductosContract.CompraEntry.COLUMN_PRECIO));
+                        ProductosContract.ProductoEntry.COLUMN_PRECIO));
                 total = cursor.getString(cursor.getColumnIndex(
-                        ProductosContract.CompraEntry.COLUMN_TOTAL));
+                        ProductosContract.ProductoEntry.COLUMN_TOTAL));
+                cantidadVendida = cursor.getString(cursor.getColumnIndex(
+                        ProductosContract.ProductoEntry.COLUMN_CANTIDAD_VENDIDA));
+                precioVenta = cursor.getString(cursor.getColumnIndex(
+                        ProductosContract.ProductoEntry.COLUMN_PRECIO_VENTA));
+                totalVentas = cursor.getString(cursor.getColumnIndex(
+                        ProductosContract.ProductoEntry.COLUMN_TOTAL_GANANCIAS));
+                diferncia = cursor.getString(cursor.getColumnIndex(
+                        ProductosContract.ProductoEntry.COLUMN_DIFERENCIA));
 
-                producto = new Producto(codigo, nombre, proveedor, cantidad, precio, total);
+                producto = new Producto(codigo, nombre, proveedor, cantidad, precio, total, cantidadVendida, precioVenta, totalVentas, diferncia);
                 producto.setCodigo(codigo);
 
                 listaCompra.add(producto);
@@ -126,14 +151,18 @@ public class ProductosPersistencia {
         SQLiteDatabase database = openReadable();
 
         String query = "SELECT "
-                + ProductosContract.CompraEntry.COLUMN_CODIGO
-                + ", " + ProductosContract.CompraEntry.COLUMN_NOMBRE
-                + ", " + ProductosContract.CompraEntry.COLUMN_PROVEEDOR
-                + ", " + ProductosContract.CompraEntry.COLUMN_CANTIDAD
-                + ", " + ProductosContract.CompraEntry.COLUMN_PRECIO
-                + ", " + ProductosContract.CompraEntry.COLUMN_TOTAL
-                + " FROM " + ProductosContract.CompraEntry.TABLE_NAME
-                + " WHERE " + ProductosContract.CompraEntry.COLUMN_NOMBRE
+                + ProductosContract.ProductoEntry.COLUMN_CODIGO
+                + ", " + ProductosContract.ProductoEntry.COLUMN_NOMBRE
+                + ", " + ProductosContract.ProductoEntry.COLUMN_PROVEEDOR
+                + ", " + ProductosContract.ProductoEntry.COLUMN_CANTIDAD
+                + ", " + ProductosContract.ProductoEntry.COLUMN_PRECIO
+                + ", " + ProductosContract.ProductoEntry.COLUMN_TOTAL
+                + ", " + ProductosContract.ProductoEntry.COLUMN_CANTIDAD_VENDIDA
+                + ", " + ProductosContract.ProductoEntry.COLUMN_PRECIO_VENTA
+                + ", " + ProductosContract.ProductoEntry.COLUMN_TOTAL_GANANCIAS
+                + ", " + ProductosContract.ProductoEntry.COLUMN_DIFERENCIA
+                + " FROM " + ProductosContract.ProductoEntry.TABLE_NAME
+                + " WHERE " + ProductosContract.ProductoEntry.COLUMN_NOMBRE
                 + " LIKE '%" + productoB + "%'";
 
         Cursor cursor = database.rawQuery(query, null);
@@ -145,23 +174,34 @@ public class ProductosPersistencia {
         String cantidad;
         String precio;
         String total;
-
+        String cantidadVendida;
+        String precioVenta;
+        String totalVentas;
+        String diferencia;
         if (cursor.moveToFirst()) {
             do {
                 codigo = cursor.getString(cursor.getColumnIndex(
-                        ProductosContract.CompraEntry.COLUMN_CODIGO));
+                        ProductosContract.ProductoEntry.COLUMN_CODIGO));
                 nombre = cursor.getString(cursor.getColumnIndex(
-                        ProductosContract.CompraEntry.COLUMN_NOMBRE));
+                        ProductosContract.ProductoEntry.COLUMN_NOMBRE));
                 proveedor = cursor.getString(cursor.getColumnIndex(
-                        ProductosContract.CompraEntry.COLUMN_PROVEEDOR));
+                        ProductosContract.ProductoEntry.COLUMN_PROVEEDOR));
                 cantidad = cursor.getString(cursor.getColumnIndex(
-                        ProductosContract.CompraEntry.COLUMN_CANTIDAD));
+                        ProductosContract.ProductoEntry.COLUMN_CANTIDAD));
                 precio = cursor.getString(cursor.getColumnIndex(
-                        ProductosContract.CompraEntry.COLUMN_PRECIO));
+                        ProductosContract.ProductoEntry.COLUMN_PRECIO));
                 total = cursor.getString(cursor.getColumnIndex(
-                        ProductosContract.CompraEntry.COLUMN_TOTAL));
+                        ProductosContract.ProductoEntry.COLUMN_TOTAL));
+                cantidadVendida = cursor.getString(cursor.getColumnIndex(
+                        ProductosContract.ProductoEntry.COLUMN_CANTIDAD_VENDIDA));
+                precioVenta = cursor.getString(cursor.getColumnIndex(
+                        ProductosContract.ProductoEntry.COLUMN_PRECIO_VENTA));
+                totalVentas = cursor.getString(cursor.getColumnIndex(
+                        ProductosContract.ProductoEntry.COLUMN_TOTAL_GANANCIAS));
+                diferencia = cursor.getString(cursor.getColumnIndex(
+                        ProductosContract.ProductoEntry.COLUMN_DIFERENCIA));
 
-                compra = new Producto(codigo, nombre, proveedor, cantidad, precio, total);
+                compra = new Producto(codigo, nombre, proveedor, cantidad, precio, total, cantidadVendida, precioVenta, totalVentas, diferencia);
                 compra.setNombre(nombre);
 
                 lista.add(compra);
@@ -235,15 +275,19 @@ public class ProductosPersistencia {
         SQLiteDatabase database = openReadable();
 
         String query = "SELECT "
-                + ProductosContract.CompraEntry.COLUMN_CODIGO
-                + ", " + ProductosContract.CompraEntry.COLUMN_NOMBRE
-                + ", " + ProductosContract.CompraEntry.COLUMN_PROVEEDOR
-                + ", " + ProductosContract.CompraEntry.COLUMN_CANTIDAD
-                + ", " + ProductosContract.CompraEntry.COLUMN_PRECIO
-                + ", " + ProductosContract.CompraEntry.COLUMN_TOTAL
-                + " FROM " + ProductosContract.CompraEntry.TABLE_NAME
+                + ProductosContract.ProductoEntry.COLUMN_CODIGO
+                + ", " + ProductosContract.ProductoEntry.COLUMN_NOMBRE
+                + ", " + ProductosContract.ProductoEntry.COLUMN_PROVEEDOR
+                + ", " + ProductosContract.ProductoEntry.COLUMN_CANTIDAD
+                + ", " + ProductosContract.ProductoEntry.COLUMN_PRECIO
+                + ", " + ProductosContract.ProductoEntry.COLUMN_TOTAL
+                + ", " + ProductosContract.ProductoEntry.COLUMN_CANTIDAD_VENDIDA
+                + ", " + ProductosContract.ProductoEntry.COLUMN_PRECIO_VENTA
+                + ", " + ProductosContract.ProductoEntry.COLUMN_TOTAL_GANANCIAS
+                + ", " + ProductosContract.ProductoEntry.COLUMN_DIFERENCIA
+                + " FROM " + ProductosContract.ProductoEntry.TABLE_NAME
                 + " WHERE "
-                + ProductosContract.CompraEntry.COLUMN_CODIGO + " = ?";
+                + ProductosContract.ProductoEntry.COLUMN_CODIGO + " = ?";
         String[] whereArgs = {String.valueOf(sCodigo)};
 
         Cursor cursor = database.rawQuery(query, whereArgs);
@@ -254,21 +298,34 @@ public class ProductosPersistencia {
         String cantidad;
         String precio;
         String total;
+        String cantidadVentas;
+        String precioVenta;
+        String totalVendido;
+        String diferencia;
         if (cursor.moveToFirst()) {
             codigo = cursor.getString(cursor.getColumnIndex(
-                    ProductosContract.CompraEntry.COLUMN_CODIGO));
+                    ProductosContract.ProductoEntry.COLUMN_CODIGO));
             nombre = cursor.getString(cursor.getColumnIndex(
-                    ProductosContract.CompraEntry.COLUMN_NOMBRE));
+                    ProductosContract.ProductoEntry.COLUMN_NOMBRE));
             proveedor = cursor.getString(cursor.getColumnIndex(
-                    ProductosContract.CompraEntry.COLUMN_PROVEEDOR));
+                    ProductosContract.ProductoEntry.COLUMN_PROVEEDOR));
             cantidad = cursor.getString(cursor.getColumnIndex(
-                    ProductosContract.CompraEntry.COLUMN_CANTIDAD));
+                    ProductosContract.ProductoEntry.COLUMN_CANTIDAD));
             precio = cursor.getString(cursor.getColumnIndex(
-                    ProductosContract.CompraEntry.COLUMN_PRECIO));
+                    ProductosContract.ProductoEntry.COLUMN_PRECIO));
             total = cursor.getString(cursor.getColumnIndex(
-                    ProductosContract.CompraEntry.COLUMN_TOTAL));
+                    ProductosContract.ProductoEntry.COLUMN_TOTAL));
+            cantidadVentas = cursor.getString(cursor.getColumnIndex(
+                    ProductosContract.ProductoEntry.COLUMN_CANTIDAD_VENDIDA));
+            precioVenta = cursor.getString(cursor.getColumnIndex(
+                    ProductosContract.ProductoEntry.COLUMN_PRECIO_VENTA));
+            totalVendido = cursor.getString(cursor.getColumnIndex(
+                    ProductosContract.ProductoEntry.COLUMN_TOTAL_GANANCIAS));
+            diferencia = cursor.getString(cursor.getColumnIndex(
+                    ProductosContract.ProductoEntry.COLUMN_DIFERENCIA));
 
-            compra = new Producto(codigo, nombre, proveedor, cantidad, precio, total);
+
+            compra = new Producto(codigo, nombre, proveedor, cantidad, precio, total, cantidadVentas, precioVenta, totalVendido, diferencia);
             compra.setCodigo(codigo);
 
 
@@ -284,21 +341,29 @@ public class ProductosPersistencia {
         database.beginTransaction();
 
         ContentValues compraValues = new ContentValues();
-        compraValues.put(ProductosContract.CompraEntry.COLUMN_NOMBRE,
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_NOMBRE,
                 compra.getNombre());
-        compraValues.put(ProductosContract.CompraEntry.COLUMN_PROVEEDOR,
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_PROVEEDOR,
                 compra.getProveedor());
-        compraValues.put(ProductosContract.CompraEntry.COLUMN_CANTIDAD,
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_CANTIDAD,
                 compra.getCantidad());
-        compraValues.put(ProductosContract.CompraEntry.COLUMN_PRECIO,
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_PRECIO,
                 compra.getPrecio());
-        compraValues.put(ProductosContract.CompraEntry.COLUMN_TOTAL,
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_TOTAL,
                 compra.getTotal());
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_CANTIDAD_VENDIDA,
+                compra.getCantidadVendida());
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_PRECIO_VENTA,
+                compra.getPrecioVenta());
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_TOTAL_GANANCIAS,
+                compra.getTotalVenta());
+        compraValues.put(ProductosContract.ProductoEntry.COLUMN_DIFERENCIA,
+                compra.getDiferencia());
 
         String [] whereArgs = { String.valueOf(compra.getCodigo()) };
-        database.update(ProductosContract.CompraEntry.TABLE_NAME,
+        database.update(ProductosContract.ProductoEntry.TABLE_NAME,
                 compraValues,
-                ProductosContract.CompraEntry.COLUMN_CODIGO + " = ?",
+                ProductosContract.ProductoEntry.COLUMN_CODIGO + " = ?",
                 whereArgs);
         database.setTransactionSuccessful();
         database.endTransaction();

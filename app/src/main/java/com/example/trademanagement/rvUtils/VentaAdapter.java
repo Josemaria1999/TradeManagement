@@ -52,8 +52,8 @@ public class VentaAdapter extends RecyclerView.Adapter {
             tvNombreV = v.findViewById(R.id.tvNombreI);
             tvProveedorV = v.findViewById(R.id.tvProveedorI);
             tvCantidadV = v.findViewById(R.id.tvCantidadI);
-            tvPrecioV = v.findViewById(R.id.tvPrecioI);
-            tvTotalV = v.findViewById(R.id.tvTotalI);
+            tvPrecioV = v.findViewById(R.id.tvPrecioCompra);
+            tvTotalV = v.findViewById(R.id.tvTotalCompra);
         }
 
         public void bindCompra(Producto c){

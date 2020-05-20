@@ -12,8 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.example.trademanagement.CompraActivity;
-import com.example.trademanagement.ModificarProductosAlmacen;
 import com.example.trademanagement.R;
 import com.example.trademanagement.VentasActivity;
 import com.example.trademanagement.model.Producto;
@@ -52,12 +50,7 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Comp
             }
         });
 
-        holder.btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cambioVentana(ModificarProductosAlmacen.class);
-            }
-        });
+
     }
     void cambioVentana(Class goTo){
         intent = new Intent(_activity, goTo);
@@ -78,6 +71,10 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Comp
         private TextView tvCantidad;
         private TextView tvPrecio;
         private TextView tvTotal;
+       private TextView tvCantidadVendida;
+       private TextView tvPrecioVenta;
+       private TextView tvTotalVendido;
+       private TextView tvDiferencia;
         private Button btn1, btn2;
        public CompraVH(@NonNull View v) {
            super(v);
@@ -85,8 +82,12 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Comp
            tvNombre = v.findViewById(R.id.tvNombreI);
            tvProveedor = v.findViewById(R.id.tvProveedorI);
            tvCantidad = v.findViewById(R.id.tvCantidadI);
-           tvPrecio = v.findViewById(R.id.tvPrecioI);
-           tvTotal = v.findViewById(R.id.tvTotalI);
+           tvPrecio = v.findViewById(R.id.tvPrecioCompra);
+           tvTotal = v.findViewById(R.id.tvTotalCompra);
+           tvCantidadVendida = v.findViewById(R.id.tvCantidadVenta);
+           tvPrecioVenta = v.findViewById(R.id.tvPrecioVenta);
+           tvTotalVendido = v.findViewById(R.id.tvTotalVenta);
+           tvDiferencia = v.findViewById(R.id.tvDiferencia);
            btn1 = v.findViewById(R.id.btnComprar);
            btn2 = v.findViewById(R.id.btnAniadir);
 
@@ -102,6 +103,10 @@ public class ProductosAdapter extends RecyclerView.Adapter<ProductosAdapter.Comp
            tvCantidad.setText("Cantidad: "+ c.getCantidad());
            tvPrecio.setText("Precio: " + c.getPrecio() + "€");
            tvTotal.setText("Total: " + c.getTotal()+ "€");
+           tvCantidadVendida.setText("Cantidad vendida: "+ c.getCantidadVendida());
+           tvPrecioVenta.setText("Precio de venta: " + c.getPrecioVenta() + "€");
+           tvTotalVendido.setText("Total vendido: " + c.getTotalVenta()+ "€");
+           tvDiferencia.setText("Diferencia: " + c.getDiferencia() + "€");
 
 
 

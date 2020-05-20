@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">TradeManagement</string>
-    <string name="btnCompra">REGISTRAR PRODUCTO NUEVO</string>
+    <string name="btnCompra">REGISTRAR FACTURA PROVEEDOR</string>
     <string name="btn_venta">Vender</string>
     <string name="btn_almacen">Almacen</string>
     <string name="btn_cuentaRes">Cuenta de resultados</string>
@@ -27,4 +27,8 @@
     <string name="hint_et_cliente">Nombre del cliente</string>
     <string name="no_cliente">DEBES INTRODUCIR UN CLIENTE</string>
     <string name="no_venta">NO EXISTE REGISTRO DE VENTA DE ESE PRODUCTO</string>
+    <string name="btn_vender">VENDER</string>
+    <string name="hint_et_total_vendido">TOTAL VENDIDO</string>
+    <string name="hint_et_cantidad_vendida">CANTIDAD VENDIDA</string>
+    <string name="hint_et_datos_venta">DATOS DE VENTA</string>
 </resources>

@@ -15,7 +15,6 @@
         android:layout_marginTop="50dp"
         android:layout_marginEnd="8dp"
         android:text="REGISTRO DE NUEVOS PRODUCTOS"
-        android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,70 +29,195 @@
         android:orientation="vertical"
         android:layout_below="@id/tvComprasM">
 
-        <EditText
-            android:id="@+id/etCodigoV"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/etCodigoV"
+                android:layout_width="254dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/hint_et_codigo"
+                android:textColorHint="@color/naranja"
+
+                />
+
+            <Button
+                android:id="@+id/btnBuscar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/btn_buscar"
+                android:onClick="buscar"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llNomb"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/etNombreM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:enabled="false"
+                android:hint="@string/hint_et_nombre_producto"
+                android:textColorHint="@color/naranja" />
+
+            <EditText
+                android:id="@+id/etProveedorM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:enabled="false"
+                android:hint="@string/hint_et_proveedor"
+                android:textColorHint="@color/naranja" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llNumComp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/etCantidadM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:enabled="false"
+                android:hint="@string/hint_et_cantidad"
+                android:inputType="number"
+                android:textColorHint="@color/naranja" />
+
+            <EditText
+                android:id="@+id/etPrecioCompraM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:enabled="false"
+                android:hint="@string/hint_et_precio_compra"
+                android:inputType="number"
+                android:textColorHint="@color/naranja" />
+
+            <EditText
+                android:id="@+id/etTotalM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:enabled="false"
+                android:hint="@string/hint_et_total"
+                android:inputType="number"
+                android:textColorHint="@color/naranja" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvDatosVenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="@string/hint_et_codigo"
-            android:textColorHint="@color/naranja"
+            android:text="@string/hint_et_datos_venta"
+            android:padding="20dp"/>
 
-            />
-        <EditText
-            android:id="@+id/etNombreM"
+        <LinearLayout
+            android:id="@+id/llMoney"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:hint="@string/hint_et_nombre_producto"
-            android:textColorHint="@color/naranja"
-            />
-        <EditText
-            android:id="@+id/etProveedorM"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <EditText
+                android:id="@+id/etCantidadVendida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:hint="@string/hint_et_cantidad_vendida"
+                android:inputType="number"
+                android:textColorHint="@color/naranja" />
+
+            <EditText
+                android:id="@+id/etPrecioVenta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:hint="@string/hint_et_precio_venta"
+                android:inputType="number"
+                android:textColorHint="@color/naranja" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llCalculo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:textColorHint="@color/naranja"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:padding="5dp">
 
-            android:hint="@string/hint_et_proveedor"
-           />
-        <EditText
-            android:id="@+id/etCantidadM"
+            <EditText
+                android:id="@+id/etTotalVendido"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:hint="@string/hint_et_total_vendido"
+                android:inputType="number"
+                android:textColorHint="@color/naranja" />
+
+            <EditText
+                android:id="@+id/etDiferencia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:hint="DIFERENCIA"
+                android:inputType="number"
+                android:textColorHint="@color/naranja" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColorHint="@color/naranja"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:padding="5dp">
 
-            android:layout_weight="4"
-            android:hint="@string/hint_et_cantidad"
-            android:inputType="number"/>
-        <EditText
-            android:id="@+id/etPrecioCompraM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:textColorHint="@color/naranja"
+            <Button
+                android:id="@+id/btnGuardarM"
+                android:layout_width="948dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:background="@color/naranja"
+                android:enabled="false"
+                android:onClick="guardar"
+                android:text="@string/btn_guardar"
+                android:textColorHint="@color/naranja" />
 
-            android:hint="@string/hint_et_precio_compra"
-            android:inputType="number"/>
-        <EditText
-            android:id="@+id/etTotalM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:textColorHint="@color/naranja"
-
-            android:hint="@string/hint_et_total"
-            android:inputType="number"/>
-
-        <Button
-            android:id="@+id/btnGuardarM"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:background="@color/naranja"
-
-            android:onClick="guardar"
-            android:text="@string/btn_guardar"
-            android:textColorHint="@color/naranja" />
+            <Button
+                android:id="@+id/btnAct"
+                android:layout_width="948dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:background="@color/naranja"
+                android:enabled="false"
+                android:onClick="actualizar"
+                android:text="GUARDAR CAMBIOS" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/btnReiniciar"
@@ -101,10 +225,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:background="@color/naranja"
-
+            android:enabled="true"
             android:onClick="reiniciar"
             android:text="@string/btn_Reiniciar"
-            android:textColorHint="@color/naranja" />
+            android:textColorHint="@color/naranja"
+            android:padding="5dp"/>
 
 
     </LinearLayout>

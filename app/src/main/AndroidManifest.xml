@@ -11,7 +11,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".VentasActivity"/>
         <activity android:name=".RegistroVentas" />
-        <activity android:name=".ModificarProductosAlmacen" />
         <activity android:name=".AlmacenActivity" />
         <activity android:name=".CuentaResultadosActivity" />
         <activity android:name=".CompraActivity" />

@@ -24,16 +24,6 @@
         android:onClick="venderAClientes"/>
 
     <Button
-        android:id="@+id/btnVenta2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnCompra"
-        android:layout_marginTop="382dp"
-        android:onClick="nuevaV"
-        android:text="Nventa"
-        />
-
-    <Button
         android:id="@+id/btnAlmacen"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -47,21 +37,13 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/btnAlmacen"
         android:layout_marginTop="25dp"
-        android:text="@string/btn_cuentaRes"
-        android:onClick="cuentaResultados"/>
-    <Button
-        android:id="@+id/btnIntroYaExistentes"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnCuentaResultados"
-        android:layout_marginTop="25dp"
-        android:onClick="comprarAProveedoores"
-        android:text="@string/btnEntradaStockExistente" />
+        android:text="@string/btn_cuentaRes"/>
+
     <Button
         android:id="@+id/btnRegistroVenta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnIntroYaExistentes"
+        android:layout_below="@id/btnCuentaResultados"
         android:layout_marginTop="25dp"
         android:text="@string/btn_registroV"
         android:onClick="registroVentas"/>
