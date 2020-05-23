@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="naranja">#DF8713</color>
+    <color name="transparente">#00F44336</color>
 </resources>

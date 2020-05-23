@@ -31,4 +31,8 @@
     <string name="hint_et_total_vendido">TOTAL VENDIDO</string>
     <string name="hint_et_cantidad_vendida">CANTIDAD VENDIDA</string>
     <string name="hint_et_datos_venta">DATOS DE VENTA</string>
+    <string name="hint_et_pwd">Contraseña</string>
+    <string name="hint_et_email">e-mail</string>
+    <string name="btn_entrar">Entrar</string>
+    <string name="btn_registro_user">Crea una cuenta</string>
 </resources>

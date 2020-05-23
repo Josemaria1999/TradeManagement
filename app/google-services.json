@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "38245455401",
+    "firebase_url": "https://trademanagement-222b4.firebaseio.com",
+    "project_id": "trademanagement-222b4",
+    "storage_bucket": "trademanagement-222b4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:38245455401:android:b51101d3488abb6a762e38",
+        "android_client_info": {
+          "package_name": "com.example.trademanagement"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "38245455401-k3uus4ogdr3deob0aicdseg5ggktoaun.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.trademanagement",
+            "certificate_hash": "ba435f13dcf4d494946d4c5ce8eb3f96ca0a2ac7"
+          }
+        },
+        {
+          "client_id": "38245455401-07b7eaovop23t1sueik21jkp7hvell6n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7vuYwMrS4fttKi8uQwrhX88XzNL7eSdk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "38245455401-07b7eaovop23t1sueik21jkp7hvell6n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
