@@ -34,5 +34,14 @@
     <string name="hint_et_pwd">Contraseña</string>
     <string name="hint_et_email">e-mail</string>
     <string name="btn_entrar">Entrar</string>
-    <string name="btn_registro_user">Crea una cuenta</string>
+    <string name="btn_registro_user_login">Crea una cuenta</string>
+    <string name="et_nomuser_reg">Nombre y apellidos</string>
+    <string name="et_tlfnouser_reg">Número de telefono</string>
+    <string name="et_nickuser_reg">Nombre de Usuario</string>
+    <string name="et_mailuser_reg">Email</string>
+    <string name="et_pwd_reg">Contraseña</string>
+    <string name="et_pwdconf_reg">Confirmar Contraseña</string>
+    <string name="btn_registro_user">Registrarse</string>
+    <string name="toast_userreg_ok">Usuario creado con éxito</string>
+    <string name="toast_userreg_err">Error durante el registro</string>
 </resources>
