@@ -21,7 +21,6 @@
         android:layout_toEndOf="@+id/btnEntrar"
         android:layout_toRightOf="@+id/btnEntrar"
         android:background="@color/transparente"
-        android:shadowDx="0"
         android:text="@string/btn_registro_user_login" />
 
     <ImageView
@@ -55,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/etPasswordLogin"
         android:layout_centerHorizontal="true"
+        android:onClick="acceder"
         android:text="@string/btn_entrar" />
 
 </RelativeLayout>

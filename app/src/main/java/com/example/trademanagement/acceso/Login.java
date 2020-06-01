@@ -3,11 +3,13 @@ package com.example.trademanagement.acceso;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.trademanagement.MainActivity;
 import com.example.trademanagement.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,7 +28,8 @@ public class Login extends AppCompatActivity {
     String mail;
     String pwd;
 
-    //TODO elementos
+    //TODO SplashScreen
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +43,15 @@ public class Login extends AppCompatActivity {
         fu = fa.getCurrentUser();
 
         if (fu != null){
-            //TODO saltar login o pedir contraseña allways?
+            
             etEmail.setText(fu.getEmail());
+        }else {
+            etEmail.setText("");
+            etPwd.setText("");
         }
     }
+
+    //TODO casilla recordar?
 
     public void acceder(View view) {
 
@@ -57,25 +65,25 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-
+                                fu = fa.getCurrentUser();
+                                Intent i = new Intent(Login.this, MainActivity.class);
+                                startActivity(i);
+                                //putExtra?
                             }else{
-
+                                Toast.makeText(Login.this,"fok",Toast.LENGTH_SHORT).show();
+                                //TODO onFailureListener
                             }
                         }
                     });
         }
-
-        mail = etEmail.getText().toString().trim();
-        pwd = etPwd.getText().toString().trim();
-
-
-
     }
 
     private String comprobar() {
+        mail = etEmail.getText().toString().trim();
+        pwd = etPwd.getText().toString().trim();
         String msj=null;
 
-        if (mail.equals("") || pwd.equals("") ){
+        if (mail.isEmpty() || pwd.isEmpty()){
             msj = "introduce tu e-mail y contraseña";
         }
        return msj;

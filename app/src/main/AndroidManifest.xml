@@ -9,14 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <!--<activity android:name=".acceso.RegistroUser"></activity>-->
-             <activity android:name=".acceso.Login" />
-             <activity android:name=".VentasActivity" />
-             <activity android:name=".RegistroVentas" />
-             <activity android:name=".AlmacenActivity" />
-             <activity android:name=".CuentaResultadosActivity" />
-             <activity android:name=".CompraActivity" />
-             <activity android:name=".acceso.RegistroUser"><!--.MainActivity-->
+        <activity android:name=".acceso.RegistroUser"/>
+
+        <activity android:name=".VentasActivity" />
+        <activity android:name=".RegistroVentas" />
+        <activity android:name=".AlmacenActivity" />
+        <activity android:name=".CuentaResultadosActivity" />
+        <activity android:name=".CompraActivity" />
+        <activity android:name=".MainActivity" /><!--.-->
+        <activity android:name=".acceso.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
